@@ -8,7 +8,7 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
 ## Screenshot of ProjectManagement 
-https://github.com/KanhaiyaAryal/ProjectManagement/blob/master/screenshoots/Screenshot%202019-09-17%20at%205.20.48%20PM.png
+<p align="center"><img src="https://github.com/KanhaiyaAryal/ProjectManagement/blob/master/screenshoots/Screenshot%202019-09-17%20at%205.20.48%20PM.png"></p>
 
 https://github.com/KanhaiyaAryal/ProjectManagement/blob/master/screenshoots/Screenshot%202019-09-17%20at%205.20.53%20PM.png
 
