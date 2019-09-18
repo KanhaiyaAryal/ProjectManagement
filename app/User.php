@@ -36,19 +36,24 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function comments() {
+    public function comments()
+    {
         return $this->morphMany('App\Comment', 'commentable');
     }
-    public function role() {
+    public function role()
+    {
         return $this->belongsTo('App\Role');
     }
-    public function companies() {
+    public function companies()
+    {
         return $this->hasMany('App\Company');
     }
-    public function tasks() {
+    public function tasks()
+    {
         return $this->belongsToMany('App\Task');
     }
-    public function projects() {
+    public function projects()
+    {
         return $this->belongsToMany('App\Project');
     }
 }

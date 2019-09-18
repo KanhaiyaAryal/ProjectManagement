@@ -10,19 +10,24 @@ class Task extends Model
         'name','descriptions','user_id','project_id',
         'days','hours','company_id'
         ];
-    public function user() {
+    public function user()
+    {
         return $this->belongsTo('App\User');
     }
-    public function project() {
+    public function project()
+    {
         return $this->belongsTo('App\Project');
     }
-    public function company() {
+    public function company()
+    {
         return $this->belongsTo('App\Company');
     }
-    public function users() {
+    public function users()
+    {
         return $this->belongsToMany('App\User');
     }
-    public function comments() {
+    public function comments()
+    {
         return $this->morphMany('App\Comment', 'commentable');
     }
 }

@@ -7,13 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class Company extends Model
 {
     protected $fillable=['name','descriptions','user_id'];
-    public function user() {
+    public function user()
+    {
         return $this->belongsTo('App\User');
     }
-    public function projects() {
+    public function projects()
+    {
         return $this->hasMany('App\Project');
     }
-    public function comments() {
+    public function comments()
+    {
         return $this->morphMany('App\Comment', 'commentable');
     }
 }

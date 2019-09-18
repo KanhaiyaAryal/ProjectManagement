@@ -36,7 +36,7 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-       if(Auth::check()) {  
+        if (Auth::check()) {
             $comment = Comment::create([
                 'body'=> $request->input('comment'),
                 'url'=> $request->input('url'),
@@ -44,11 +44,11 @@ class CommentController extends Controller
                 'commentable_id' => $request->input('commentable_id'),
                 'commentable_type' => "App\Project"
                 ]);
-            //echo $request->input('descriptions');
-            if($comment){
-                return back()->with('success','comment created successfully.');
+             //echo $request->input('descriptions');
+            if ($comment) {
+                return back()->with('success', 'comment created successfully.');
             }
-       }
+        }
     }
 
     /**

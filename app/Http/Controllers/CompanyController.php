@@ -15,9 +15,9 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        if(Auth::check()) {
+        if (Auth::check()) {
             $companies=Company::where('user_id', Auth::user()->id)->get();
-            return view('company.index',['companies'=>$companies]);
+            return view('company.index', ['companies'=>$companies]);
         }
         return view('auth.login');
     }
@@ -30,7 +30,7 @@ class CompanyController extends Controller
     public function create()
     {
         
-       return view('company.create');
+        return view('company.create');
     }
 
     /**
@@ -41,23 +41,23 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-       $request->validate([
+        $request->validate([
             'name' => 'required',
             'descriptions' => 'required'
         ]);
        
-       if(Auth::check()) {  
+        if (Auth::check()) {
             $insertCompany = Company::create([
                 'name'=> $request->input('name'),
                 'descriptions' => $request->input('descriptions'),
-                'user_id' => Auth::user()->id 
+                'user_id' => Auth::user()->id
                 ]);
-            //echo $request->input('descriptions');
-            if($insertCompany){
+             //echo $request->input('descriptions');
+            if ($insertCompany) {
                 return redirect()->route('company.index')
-                           ->with('success','Company created successfully.');
+                          ->with('success', 'Company created successfully.');
             }
-       }
+        }
     }
 
     /**
@@ -69,7 +69,7 @@ class CompanyController extends Controller
     public function show(Company $company)
     {
         $company= Company::find($company->id);
-        return view('company.show',['company'=>$company]);
+        return view('company.show', ['company'=>$company]);
     }
 
     /**
@@ -80,8 +80,8 @@ class CompanyController extends Controller
      */
     public function edit(Company $company)
     {
-       $company= Company::find($company->id);
-       return view('company.edit',['company'=>$company]);
+        $company= Company::find($company->id);
+        return view('company.edit', ['company'=>$company]);
     }
 
     /**
@@ -97,14 +97,14 @@ class CompanyController extends Controller
             'name' => 'required',
             'descriptions' => 'required',
         ]);
-        $companyUpdate= Company::where('id',$company->id)
+        $companyUpdate= Company::where('id', $company->id)
                 ->update([
                     'name'=>$request->input('name'),
                     'descriptions'=>$request->input('descriptions')
                 ]);
          
-        if($companyUpdate) {
-            return redirect('company')->with('success','Company updated successfully');
+        if ($companyUpdate) {
+            return redirect('company')->with('success', 'Company updated successfully');
         }
     }
 
@@ -117,9 +117,9 @@ class CompanyController extends Controller
     public function destroy(Company $company)
     {
         $companyDelete=Company::find($company->id);
-        if($companyDelete->delete()) {
-            return redirect('company')->with('success','Company deleted successfully');
+        if ($companyDelete->delete()) {
+            return redirect('company')->with('success', 'Company deleted successfully');
         }
-        return back()->withInput('error','Company cannot delete');
+        return back()->withInput('error', 'Company cannot delete');
     }
 }

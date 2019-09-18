@@ -9,14 +9,17 @@ class Project extends Model
     protected $fillable=['name','descriptions','user_id','days',
         'company_id'
         ];
-    public function users() {
+    public function users()
+    {
         return $this->belongsToMany('App\User');
     }
-    public function company() {
+    public function company()
+    {
         return $this->belongsTo('App\Company');
     }
 
-    public function comments() {
+    public function comments()
+    {
         return $this->morphMany('App\Comment', 'commentable');
     }
 }
